@@ -29,7 +29,7 @@ export const en: SiteContent = {
     emphasis: 'visual',
     titleBottom: 'meets usability',
     intro:
-      'Product designer with six years across research, interface and, more recently, the code that ships them. I work on systems where a design decision has a number attached to it.',
+      'Product designer with three years across research, interface and, more recently, the code that ships them. I work on systems where a design decision has a number attached to it.',
     cta: 'Get in touch',
     scroll: 'Selected work',
   },
@@ -134,7 +134,7 @@ export const en: SiteContent = {
       'I work in Brazilian Portuguese and English, and I am open to remote roles and freelance projects.',
     ],
     highlights: [
-      { value: '6 yrs', label: 'In design' },
+      { value: '3 yrs', label: 'In design' },
       { value: '+800%', label: 'Peak productivity gain delivered' },
       { value: '5', label: 'Sectors worked in' },
       { value: '2', label: 'Languages' },

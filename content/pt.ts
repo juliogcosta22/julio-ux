@@ -29,7 +29,7 @@ export const pt: SiteContent = {
     emphasis: 'visual',
     titleBottom: 'encontra a usabilidade',
     intro:
-      'Product designer com seis anos entre pesquisa, interface e, mais recentemente, o código que coloca tudo isso no ar. Trabalho em sistemas onde cada decisão de design tem um número preso nela.',
+      'Product designer com três anos entre pesquisa, interface e, mais recentemente, o código que coloca tudo isso no ar. Trabalho em sistemas onde cada decisão de design tem um número preso nela.',
     cta: 'Entrar em contato',
     scroll: 'Projetos selecionados',
   },
@@ -134,7 +134,7 @@ export const pt: SiteContent = {
       'Trabalho em português e inglês, e estou aberto a posições remotas e projetos freelance.',
     ],
     highlights: [
-      { value: '6 anos', label: 'De design' },
+      { value: '3 anos', label: 'De design' },
       { value: '+800%', label: 'Maior ganho de produtividade entregue' },
       { value: '5', label: 'Setores atendidos' },
       { value: '2', label: 'Idiomas' },
