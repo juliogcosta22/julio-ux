@@ -6,7 +6,7 @@ import { Nav } from '@/components/Nav'
 import { Footer } from '@/components/Footer'
 import { DEFAULT_LANG, LANGS, getContent, isLang } from '@/content'
 
-/** Display serif — headlines, case titles, pull quotes. */
+/** Display serif: headlines, case titles, pull quotes. */
 const display = Instrument_Serif({
   subsets: ['latin'],
   weight: ['400'],
@@ -15,7 +15,7 @@ const display = Instrument_Serif({
   variable: '--font-display',
 })
 
-/** Body sans — everything else. */
+/** Body sans, everything else. */
 const sans = Manrope({
   subsets: ['latin'],
   display: 'swap',

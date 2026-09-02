@@ -1,5 +1,25 @@
+import Image from 'next/image'
 import { Reveal } from './Reveal'
-import type { CaseBlock } from '@/content/types'
+import type { CaseBlock, CaseImage } from '@/content/types'
+
+/** Supporting screenshot shown under a block's copy, framed and never cropped. */
+function CaseFigure({ image }: { image: CaseImage }) {
+  return (
+    <figure className="mt-10">
+      <Image
+        src={image.src}
+        alt={image.alt}
+        width={image.width}
+        height={image.height}
+        sizes="(min-width: 768px) 720px, 100vw"
+        className="h-auto w-full rounded-sm border border-ink-200/70 bg-night"
+      />
+      {image.caption ? (
+        <figcaption className="mt-3 text-xs leading-snug text-ink-400">{image.caption}</figcaption>
+      ) : null}
+    </figure>
+  )
+}
 
 /** Stable anchor id for a block, derived from its eyebrow. */
 export function blockId(eyebrow: string, index: number) {
@@ -46,11 +66,14 @@ function Block({ block, index }: { block: CaseBlock; index: number }) {
         <BlockHead eyebrow={block.eyebrow} title={block.kind === 'callout' ? undefined : block.title} />
 
         {block.kind === 'text' ? (
-          <div className="prose-editorial mt-8">
-            {block.body.map((p) => (
-              <p key={p}>{p}</p>
-            ))}
-          </div>
+          <>
+            <div className="prose-editorial mt-8">
+              {block.body.map((p) => (
+                <p key={p}>{p}</p>
+              ))}
+            </div>
+            {block.image ? <CaseFigure image={block.image} /> : null}
+          </>
         ) : null}
 
         {block.kind === 'list' ? (
@@ -79,6 +102,7 @@ function Block({ block, index }: { block: CaseBlock; index: number }) {
                 </li>
               ))}
             </ol>
+            {block.image ? <CaseFigure image={block.image} /> : null}
           </>
         ) : null}
 

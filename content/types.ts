@@ -18,10 +18,20 @@ export interface NamedItem {
   text: string
 }
 
+/** A supporting screenshot rendered inside a case block. */
+export interface CaseImage {
+  src: string
+  alt: string
+  /** Intrinsic pixel size, so the image reserves the right space and never crops. */
+  width: number
+  height: number
+  caption?: string
+}
+
 /** Blocks a case study page can be built from. */
 export type CaseBlock =
-  | { kind: 'text'; eyebrow?: string; title?: string; body: string[] }
-  | { kind: 'list'; eyebrow?: string; title?: string; body?: string[]; items: NamedItem[] }
+  | { kind: 'text'; eyebrow?: string; title?: string; body: string[]; image?: CaseImage }
+  | { kind: 'list'; eyebrow?: string; title?: string; body?: string[]; items: NamedItem[]; image?: CaseImage }
   | { kind: 'metrics'; eyebrow?: string; title?: string; body?: string[]; items: Metric[] }
   | { kind: 'quote'; text: string; author?: string }
   | { kind: 'table'; eyebrow?: string; title?: string; body?: string[]; head: string[]; rows: string[][] }

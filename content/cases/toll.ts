@@ -1,7 +1,7 @@
 import type { CaseStudy, Lang } from '../types'
 
 /**
- * Toll validation system — the flagship client case. Carried over from the
+ * Toll validation system, the flagship client case. Carried over from the
  * previous portfolio and re-cut so the numbers lead and the process supports.
  */
 export const toll: Record<Lang, CaseStudy> = {
@@ -29,6 +29,13 @@ export const toll: Record<Lang, CaseStudy> = {
           'One of the largest highway operators in Brazil wanted to raise the volume of traffic validations processed at its toll plazas. Automatic tolls feel seamless to the driver, but every transit that the system cannot resolve on its own lands on the desk of a validation operator.',
           'My role was to redesign the internal interface those operators live in: an outdated, fragmented workspace that had to become a modern, customisable and visually direct tool. The goal was to shorten the path through each case, reduce cognitive load, and move a number the business actually tracks.',
         ],
+        image: {
+          src: '/Images/toll-ui.jpg',
+          alt: 'The redesigned validation interface in its dark theme',
+          width: 2048,
+          height: 1536,
+          caption: 'The redesigned validation workspace operators use today.',
+        },
       },
       {
         kind: 'list',
@@ -64,6 +71,13 @@ export const toll: Record<Lang, CaseStudy> = {
           'The analysis exposed a structural gap rather than a cosmetic one. To close a single validation case, an operator had to move across multiple spreadsheets and system tabs, rebuilding the context of the case in their head every time.',
           'The fragmentation was the cost. Each context switch added time, added cognitive load, and added the chance of a human error on a task that is repeated thousands of times a day.',
         ],
+        image: {
+          src: '/Images/toll-before.png',
+          alt: 'The legacy validation interface, dense and fragmented',
+          width: 3001,
+          height: 2250,
+          caption: 'Before: closing a single case meant jumping across tabs and spreadsheets.',
+        },
       },
       {
         kind: 'list',
@@ -94,6 +108,13 @@ export const toll: Record<Lang, CaseStudy> = {
             text: 'Research showed operators follow the same query patterns week over week. Saving a filter configuration turns a repeated manual setup into one click.',
           },
         ],
+        image: {
+          src: '/Images/toll-wireframe.jpg',
+          alt: 'Low-fidelity wireframe of the consolidated interface',
+          width: 1512,
+          height: 982,
+          caption: 'The single-surface concept, tested in low fidelity before any visual work.',
+        },
       },
       {
         kind: 'metrics',
@@ -117,6 +138,13 @@ export const toll: Record<Lang, CaseStudy> = {
           'The gain validated the central bet: for a high-repetition, high-volume task, the win is not in adding features. It is in removing the distance between the operator and the decision they are already qualified to make.',
           'Focus, customisation and a single surface did more for throughput than any individual feature on the roadmap.',
         ],
+        image: {
+          src: '/Images/toll-after.jpg',
+          alt: 'The redesigned workspace on a tablet, overlooking a toll plaza',
+          width: 1280,
+          height: 832,
+          caption: 'After: one surface, built around the decision the operator is already qualified to make.',
+        },
       },
     ],
   },
@@ -145,6 +173,13 @@ export const toll: Record<Lang, CaseStudy> = {
           'Uma das maiores concessionárias de rodovias do Brasil queria aumentar o volume de validações de trânsitos processadas nas suas praças de pedágio. O pedágio automático parece instantâneo para o motorista, mas todo trânsito que o sistema não resolve sozinho cai na mesa de um operador de validação.',
           'Meu papel foi redesenhar a interface interna onde esses operadores passam o dia: um ambiente defasado e fragmentado que precisava virar uma ferramenta moderna, personalizável e visualmente direta. O objetivo era encurtar o caminho dentro de cada caso, reduzir a carga cognitiva e mover um número que o negócio de fato acompanha.',
         ],
+        image: {
+          src: '/Images/toll-ui.jpg',
+          alt: 'A interface de validação redesenhada, no tema escuro',
+          width: 2048,
+          height: 1536,
+          caption: 'O ambiente de validação redesenhado que os operadores usam hoje.',
+        },
       },
       {
         kind: 'list',
@@ -180,6 +215,13 @@ export const toll: Record<Lang, CaseStudy> = {
           'A análise expôs uma lacuna estrutural, não cosmética. Para fechar um único caso de validação, o operador precisava transitar por várias planilhas e abas do sistema, remontando o contexto do caso na cabeça a cada volta.',
           'A fragmentação era o custo. Cada troca de contexto somava tempo, somava carga cognitiva e somava chance de erro humano em uma tarefa repetida milhares de vezes por dia.',
         ],
+        image: {
+          src: '/Images/toll-before.png',
+          alt: 'A interface antiga de validação, densa e fragmentada',
+          width: 3001,
+          height: 2250,
+          caption: 'Antes: fechar um único caso exigia pular entre abas e planilhas.',
+        },
       },
       {
         kind: 'list',
@@ -210,6 +252,13 @@ export const toll: Record<Lang, CaseStudy> = {
             text: 'A pesquisa mostrou que os operadores seguem os mesmos padrões de consulta semana após semana. Salvar a configuração de filtro transforma uma montagem manual repetida em um clique.',
           },
         ],
+        image: {
+          src: '/Images/toll-wireframe.jpg',
+          alt: 'Wireframe de baixa fidelidade da interface consolidada',
+          width: 1512,
+          height: 982,
+          caption: 'O conceito de superfície única, testado em baixa fidelidade antes de qualquer trabalho visual.',
+        },
       },
       {
         kind: 'metrics',
@@ -233,6 +282,13 @@ export const toll: Record<Lang, CaseStudy> = {
           'O ganho validou a aposta central: em tarefa de alta repetição e alto volume, a vitória não está em adicionar funcionalidade. Está em remover a distância entre o operador e a decisão que ele já é qualificado para tomar.',
           'Foco, personalização e uma superfície única fizeram mais pela produção do que qualquer funcionalidade isolada do roadmap.',
         ],
+        image: {
+          src: '/Images/toll-after.jpg',
+          alt: 'O ambiente redesenhado em um tablet, com a praça de pedágio ao fundo',
+          width: 1280,
+          height: 832,
+          caption: 'Depois: uma só superfície, construída em volta da decisão que o operador já é qualificado para tomar.',
+        },
       },
     ],
   },

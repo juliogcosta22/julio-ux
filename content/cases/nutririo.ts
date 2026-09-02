@@ -1,6 +1,6 @@
 import type { CaseStudy, Lang } from '../types'
 
-/** Nutrir.io — meal planning app tackling diet adherence. */
+/** Nutrir.io, meal planning app tackling diet adherence. */
 export const nutririo: Record<Lang, CaseStudy> = {
   en: {
     slug: 'nutririo',
@@ -24,6 +24,13 @@ export const nutririo: Record<Lang, CaseStudy> = {
           'Nutrir.io is an intelligent meal planning app built to close the gap between having a diet and following one. The solution combines weekly planning, recipes that adapt to the user’s goals, automatic shopping lists and nutritional tracking inside a light, unpressured interface.',
           'The challenge was low adherence caused by disorganisation, monotony, and the distance between a nutritional goal and an actual Tuesday evening.',
         ],
+        image: {
+          src: '/Images/nutririo-plan.png',
+          alt: 'The Nutrir.io home screen showing the day’s meal plan',
+          width: 412,
+          height: 917,
+          caption: 'The home screen: the day’s plan and nutrition at a glance, without pressure.',
+        },
       },
       {
         kind: 'text',
@@ -31,7 +38,7 @@ export const nutririo: Record<Lang, CaseStudy> = {
         title: 'People do not quit diets for lack of willpower',
         body: [
           'They quit because of execution. Meal plans tend to be rigid and do not adapt to the user’s routine, preferences or the unexpected. That produces disorganisation, repetitive meals and off-plan decisions.',
-          'Each of those is small on its own. Stacked over a few weeks, they turn into frustration, and frustration is what ends the diet — not the diet itself.',
+          'Each of those is small on its own. Stacked over a few weeks, they turn into frustration, and frustration is what ends the diet, not the diet itself.',
         ],
       },
       {
@@ -64,6 +71,13 @@ export const nutririo: Record<Lang, CaseStudy> = {
           { title: 'Apps focused only on calories', text: 'They measure the outcome without helping with the execution that produces it.' },
           { title: 'Lack of variety kills motivation', text: 'Repetition is the most common and most preventable reason people quit.' },
         ],
+        image: {
+          src: '/Images/nutririo-persona.jpg',
+          alt: 'Portrait of Ana Pereira, the primary persona',
+          width: 1024,
+          height: 1024,
+          caption: 'Ana Pereira, 29: the routine the whole product had to fit into.',
+        },
       },
       {
         kind: 'list',
@@ -90,6 +104,13 @@ export const nutririo: Record<Lang, CaseStudy> = {
             text: 'The plan generates its own logistics, so the step between deciding and doing stops being manual work.',
           },
         ],
+        image: {
+          src: '/Images/nutririo-recipes.png',
+          alt: 'The recipe browser inside a meal',
+          width: 824,
+          height: 1834,
+          caption: 'Recipes that adapt to the goal, so the plan bends around the week.',
+        },
       },
       {
         kind: 'text',
@@ -99,6 +120,13 @@ export const nutririo: Record<Lang, CaseStudy> = {
           'The guide was built to convey lightness, clarity and warmth. The palette, typography and visual elements reinforce a calm and trustworthy experience, avoiding the sense of pressure and rigidity common in diet apps.',
           'Beyond the emotional register, it does the structural job: visual consistency, predictable behaviour and room to scale as features are added.',
         ],
+        image: {
+          src: '/Images/nutririo-palette.png',
+          alt: 'The Nutrir.io colour palette from the style guide',
+          width: 2383,
+          height: 4096,
+          caption: 'The palette behind the calm, unpressured register of the app.',
+        },
       },
       {
         kind: 'text',
@@ -134,6 +162,13 @@ export const nutririo: Record<Lang, CaseStudy> = {
           'O Nutrir.io é um app inteligente de planejamento alimentar feito para fechar a distância entre ter uma dieta e seguir uma dieta. A solução combina planejamento semanal, receitas que se adaptam aos objetivos do usuário, lista de compras automática e acompanhamento nutricional dentro de uma interface leve e sem pressão.',
           'O desafio era a baixa adesão causada por desorganização, monotonia e a distância entre uma meta nutricional e uma terça-feira à noite de verdade.',
         ],
+        image: {
+          src: '/Images/nutririo-plan.png',
+          alt: 'A tela inicial do Nutrir.io mostrando o plano de refeições do dia',
+          width: 412,
+          height: 917,
+          caption: 'A tela inicial: o plano do dia e a nutrição num relance, sem pressão.',
+        },
       },
       {
         kind: 'text',
@@ -174,6 +209,13 @@ export const nutririo: Record<Lang, CaseStudy> = {
           { title: 'Apps focados só em caloria', text: 'Medem o resultado sem ajudar na execução que produz esse resultado.' },
           { title: 'Falta de variedade desmotiva', text: 'A repetição é o motivo mais comum e mais evitável de desistência.' },
         ],
+        image: {
+          src: '/Images/nutririo-persona.jpg',
+          alt: 'Retrato de Ana Pereira, a persona principal',
+          width: 1024,
+          height: 1024,
+          caption: 'Ana Pereira, 29: a rotina em que o produto inteiro precisava caber.',
+        },
       },
       {
         kind: 'list',
@@ -200,6 +242,13 @@ export const nutririo: Record<Lang, CaseStudy> = {
             text: 'O plano gera a própria logística, então o passo entre decidir e fazer deixa de ser trabalho manual.',
           },
         ],
+        image: {
+          src: '/Images/nutririo-recipes.png',
+          alt: 'O navegador de receitas dentro de uma refeição',
+          width: 824,
+          height: 1834,
+          caption: 'Receitas que adaptam à meta, para o plano dobrar em volta da semana.',
+        },
       },
       {
         kind: 'text',
@@ -209,6 +258,13 @@ export const nutririo: Record<Lang, CaseStudy> = {
           'O guia foi criado para transmitir leveza, clareza e acolhimento. A paleta, a tipografia e os elementos visuais reforçam uma experiência calma e confiável, evitando a sensação de pressão e rigidez comum nos apps de dieta.',
           'Além do registro emocional, ele faz o trabalho estrutural: consistência visual, comportamento previsível e espaço para escalar conforme novas funcionalidades entram.',
         ],
+        image: {
+          src: '/Images/nutririo-palette.png',
+          alt: 'A paleta de cores do Nutrir.io, do style guide',
+          width: 2383,
+          height: 4096,
+          caption: 'A paleta por trás do registro calmo e sem pressão do app.',
+        },
       },
       {
         kind: 'text',

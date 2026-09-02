@@ -1,14 +1,16 @@
 import type { CaseStudy, Lang } from '../types'
 
 /**
- * DeadQueue — the self-initiated, end-to-end case. Designed and built solo,
- * so the narrative deliberately mixes product decisions with the engineering
- * consequence of each one.
+ * DeadQueue, the self-initiated, end-to-end case. The narrative is built
+ * around five real problems players hit in Deadlock's organised matches and the five product
+ * answers DeadQueue ships for them, the UX/UI decisions behind each, and how a
+ * product designer directed the whole build with Claude Code. Engineering is
+ * evidence, never the subject.
  */
 export const deadqueue: Record<Lang, CaseStudy> = {
   en: {
     slug: 'deadqueue',
-    eyebrow: 'Self-initiated · design and code',
+    eyebrow: 'Self-initiated · design and build',
     title: 'DeadQueue',
     subtitle: 'A competitive matchmaking platform for Deadlock, designed and shipped solo',
     role: 'Product Designer & Developer',
@@ -17,20 +19,20 @@ export const deadqueue: Record<Lang, CaseStudy> = {
     inverted: true,
     featured: true,
     metrics: [
-      { value: '31', label: 'Screens shipped' },
-      { value: '95', label: 'Components in the system' },
-      { value: '214', label: 'API endpoints' },
-      { value: '1', label: 'Person, design to production' },
+      { value: '500+', label: 'Users in the first two months' },
+      { value: '400+', label: 'Matches created' },
+      { value: '177', label: 'Active users' },
+      { value: '20', label: 'Paying subscribers' },
     ],
     links: [{ label: 'Visit deadqueue.com.br', href: 'https://www.deadqueue.com.br' }],
     blocks: [
       {
         kind: 'text',
         eyebrow: 'Project description',
-        title: 'A ranked league for a game that does not ship one',
+        title: 'The competitive Deadlock doesn’t have yet',
         body: [
-          'DeadQueue is a competitive matchmaking platform for Deadlock, Valve’s hero shooter. It gives the Brazilian community what the game itself does not: a solo queue with balanced teams, lobby duels between pre-made squads, a hero draft with bans, a rating that actually moves, and a season that closes on a podium.',
-          'I designed and built all of it. Research, product decisions, design system, interface and the production code behind it. It has been live since May 2026.',
+          'DeadQueue is a platform that organises more competitive matches for Deadlock, Valve’s new MOBA hero shooter. The game is still in closed beta, but it already averages around 60,000 active players worldwide, with plenty of people waiting for its launch.',
+          'DeadQueue brings the community what the game doesn’t deliver competitively yet: balanced players, hero picks and bans, communication, and a rank that follows your progress.',
         ],
       },
       {
@@ -38,184 +40,188 @@ export const deadqueue: Record<Lang, CaseStudy> = {
         eyebrow: 'Background',
         title: 'Why I started it',
         body: [
-          'I play the game. Public matchmaking pairs people almost at random: the match is decided in the first ten minutes, nobody talks, and someone leaves halfway through.',
-          'The community had already built a workaround. Custom matches get organised by hand on Discord: someone posts “10/12”, people react with an emoji, teams get picked by whoever shouts first. It works exactly once. Nobody knows who won, who left, or who is actually good.',
-          'That was the opening. The matches already existed. What was missing was everything around them: fair teams, memory, and consequence.',
+          'I play the game, and I kept hearing the same complaint: the matches the game puts together are just bad.',
+          'So I went to find out why. I talked to streamers and players, and the frustration was always the same, all around the matchmaking.',
+          'The demand was already there, from a community that cares. It just needed a platform that took it seriously.',
         ],
       },
       {
         kind: 'list',
         eyebrow: 'Problem',
-        title: 'Three problems hiding under one complaint',
+        title: 'Five problems behind one complaint',
         body: [
-          'Every player said the same sentence: “the games are bad”. Talking to them, and reading how the Discord threads actually behaved, split that sentence into three problems that each needed a different answer.',
+          'One sentence came up again and again: “the matchmaking is just bad.” When I dug in, it split into five specific problems, each one needing its own fix.',
         ],
         items: [
           {
-            title: 'Teams were never balanced',
-            text: 'There was no skill signal and no memory of past matches. Team formation was left to human preference, and a captain picks his friends first. The result is decided before the match starts.',
+            title: 'Matches aren’t balanced',
+            text: 'Players of very different skill land in the same match, so the result is decided before it even starts.',
           },
           {
-            title: 'Nothing had consequence',
-            text: 'A custom match left no trace. Winning felt like nothing, and leaving in the middle cost nothing. Without a record, there is no reason to behave like it is competitive.',
+            title: 'Hero picks are blind',
+            text: 'You choose your hero without seeing the enemy team, or even your own. The composition decides half the match, and it’s put together blind.',
           },
           {
-            title: 'The coordination cost more than the game',
-            text: 'Assembling twelve people took longer than the match itself, and the whole thing lived in a chat thread that scrolled away by the next evening.',
-          },
-        ],
-      },
-      {
-        kind: 'list',
-        eyebrow: 'Principles',
-        title: 'What I decided to optimise for',
-        body: [
-          'Every product like this trades the same four things against each other. Writing down which side I would take, before designing anything, is what kept the decisions consistent later.',
-        ],
-        items: [
-          {
-            title: 'A fair match beats a fast match',
-            text: 'Waiting a few extra minutes for a game that stays close is a better experience than an instant blowout. Queue time is a cost, not the metric.',
+            title: 'Nobody talks, and nothing stops sabotage',
+            text: 'People stay silent, quit halfway, or throw to lose faster, and nothing in the game stops them.',
           },
           {
-            title: 'Uncertainty is information',
-            text: 'A new player is not a bad player, they are an unknown one. The interface should say that out loud instead of quietly guessing.',
+            title: 'No feedback at the end',
+            text: 'You play and play and play, and your rank doesn’t move. And nobody really understands how rank works.',
           },
           {
-            title: 'Every match has to move something',
-            text: 'If a player finishes a match and nothing visibly changed, the loop is broken. Progress is the product.',
-          },
-          {
-            title: 'The system explains itself',
-            text: 'Any ranking decision has to be traceable by the player who lived it. A ranking nobody understands is a ranking nobody trusts.',
-          },
-        ],
-      },
-      {
-        kind: 'list',
-        eyebrow: 'Solution',
-        title: 'Two ways in, one competitive loop',
-        items: [
-          {
-            title: 'Solo queue',
-            text: 'Enter alone. The platform gathers eleven other players and builds both teams. No captains negotiating, no waiting for a friend to log in.',
-          },
-          {
-            title: 'Lobby versus lobby',
-            text: 'Build a squad and challenge another one. Teams come pre-formed, so the platform skips team formation and warns both sides when the skill gap is wide.',
-          },
-          {
-            title: 'Hero draft with bans',
-            text: 'Bans first to set the tone, then each player picks their own hero, with no duplicates on the board. It turns the minute before the match into part of the match.',
-          },
-          {
-            title: 'Score, level and season',
-            text: 'Every result moves the rating. The season closes with a podium and resets the race, never the player’s history.',
+            title: 'No reason to get better',
+            text: 'With nothing at stake, players never push to learn the game or beat their own ceiling.',
           },
         ],
       },
       {
         kind: 'text',
-        eyebrow: 'Decision 01',
-        title: 'Levels 1 to 10 instead of Bronze, Silver, Gold',
+        eyebrow: 'Solution 01',
+        title: 'Ten levels, and a captain draft that balances',
         body: [
-          'Ranked games name their tiers. I removed the names on purpose.',
-          'Tier names arrive pre-loaded from other games. A player who is “Gold” somewhere else reads “Gold” here as either an insult or a promotion that was never granted. Worse, named tiers freeze people: nobody wants to drop from Gold to Silver, so the rank turns into something to protect instead of something to move.',
-          'What the player sees instead is a number from 1 to 10, a colour, and a progress bar inside the current level. The bar is the actual design object: it moves after every match, even when the number does not, so the loop always pays out. Level 10 is the only one with a name, Legend, because the top should be worth saying out loud.',
+          'The fix for unbalanced matches starts with a level from 1 to 10. You only queue with players within two levels of you, so a level 7 never ends up in a lobby full of level 2s. The group is already close before teams are formed.',
+          'Captains are voted in, which already splits the strongest players onto different teams. Then each captain picks their five players one at a time, alternating, so both teams come out even.',
         ],
       },
       {
         kind: 'text',
-        eyebrow: 'Decision 02',
-        title: 'Showing the system’s uncertainty instead of hiding it',
+        eyebrow: 'Solution 02',
+        title: 'Picks and bans, with both teams in view',
         body: [
-          'The rating runs on OpenSkill, a Bayesian model in the same family as TrueSkill. It describes each player with two numbers: an estimate of skill, and how confident the system is about that estimate.',
-          'The design decision was to surface the second number. For the first five matches the badge reads “Calibrating 2/5” instead of a level, and the leaderboard sorts uncalibrated players below everyone else regardless of how well they are doing.',
-          'It costs a new player five matches of not seeing their number. In exchange, nobody is ranked on a guess and nobody gets to call the ranking fake. The number that eventually appears has been earned, and that is the whole asset.',
+          'Blind picks were the second problem, so DeadQueue adds a full hero draft before the match. Bans first, then picks, with both teams’ choices visible as they happen.',
+          'That turns the minute before the match into part of the match. You finally pick your hero knowing what the enemy is building and what your team needs.',
+        ],
+        image: {
+          src: '/Images/Picks.png',
+          alt: 'DeadQueue hero draft with picks and bans',
+          width: 1920,
+          height: 981,
+          caption: 'The draft screen: bans first, then everyone picks, with both teams in view.',
+        },
+      },
+      {
+        kind: 'text',
+        eyebrow: 'Solution 03',
+        title: 'Communication is the baseline',
+        body: [
+          'The game’s own voice chat is good, but almost nobody uses it. On DeadQueue, linking your Discord, the biggest communication platform for gamers, is required. And we encourage active communication, so players can actually get better at the game.',
+          'And here, talking actually matters. Players who stay silent, quit, or try to sabotage the team get handled by moderation, something public matchmaking never had.',
         ],
       },
       {
         kind: 'text',
-        eyebrow: 'Decision 03',
-        title: 'Balancing teams as a search problem, not a coin flip',
+        eyebrow: 'Solution 04',
+        title: 'Progress in every match',
         body: [
-          'The first version shuffled twelve players and picked two captains at random. Honest, and terrible: two of the strongest players would land as opposing captains, and the rest of the match was decided by who picked their friend first.',
-          'I replaced it with an exact search. Twelve players split into two sixes gives 924 possible partitions, few enough to evaluate every single one and score it against four goals at the same time: an expected win probability as close to 50/50 as possible, similar average level on both sides, teams that are internally homogeneous rather than one stack of stars carrying four beginners, and uncertain players spread across both sides instead of piled onto one.',
-          'The search finishes in under five milliseconds. From the player’s side it is completely invisible, which is exactly the point: they just notice the games got close.',
+          'The result comes right after the match ends, fast and with real feedback, in two ways: an AI reads a screenshot of the final scoreboard in a couple of seconds, and the official Deadlock data confirms it later. From there, points are based on how you played and how strong the other team was, so beating a tough team is worth more than rolling an easy one. And players see their progress in real time!',
         ],
-      },
-      {
-        kind: 'text',
-        eyebrow: 'Decision 04',
-        title: 'Closing the loop in seconds, not minutes',
-        body: [
-          'The rating can only move once the result is known, and the official match data can take a long time to show up. That gap is precisely where players close the tab.',
-          'So the result screen accepts a screenshot of the end-of-match scoreboard. A vision model reads it and returns structured data, winner, heroes, kills, damage and souls, in a couple of seconds, which is enough to update everyone’s rating immediately. When the official data lands later, it silently replaces the provisional read.',
-          'The design constraint drove the whole feature. The player should never be parked on a screen that says “waiting”, and a screenshot is something they already have.',
-        ],
+        image: {
+          src: '/Images/Final de partida.png',
+          alt: 'End-of-match result screen',
+          width: 1920,
+          height: 1080,
+          caption: 'The end-of-match screen the AI reads, and where your rank moves.',
+        },
       },
       {
         kind: 'callout',
-        eyebrow: 'Trade-off',
-        title: 'The decision I had to undo',
+        eyebrow: 'Solution 05',
+        title: 'Above all, a place to get better',
         body: [
-          'The queue was designed to only pair players within a few levels of each other, widening the window every two minutes until it opened up. Correct on paper, wrong in the real world: with a small player base, the strongest players sat alone in an empty queue while the window crawled open.',
-          'I put the entire rule behind a feature flag and switched it off. Today the queue matches purely on wait time and the balancer does the work once the twelve are in. The adaptive window is written, tested and dormant, waiting for the volume that makes it true.',
-          'Designing for the product you have is not the same as designing for the product you want.',
+          'That is what DeadQueue really is: a community built around getting better at the game.',
+          'The players themselves say they’ve improved a lot compared to people who never played here.',
         ],
       },
       {
-        kind: 'list',
-        eyebrow: 'System',
-        title: 'A design system built to survive one person shipping fast',
+        kind: 'text',
+        eyebrow: 'Gamification',
+        title: 'Engagement and personalisation',
         body: [
-          'With no handoff and no second designer, the system is the only thing keeping thirty-one screens consistent. It is deliberately small.',
+          'Every game has gamification, and DeadQueue is no different. On top of your level, every player has a profile they can customise, visible to everyone.',
+          'The idea is simple. You earn DeadCoins every match, more for a win and a bit less for a loss. You spend them on cosmetics like animated frames, a custom name colour and exclusive banners.',
+          'And what drives the most motivation and engagement: the leaderboard, with prizes for the top players.',
         ],
-        items: [
-          {
-            title: 'Two typefaces, no exceptions',
-            text: 'A display serif for titles, team names and big numbers. One sans for everything else. Every new screen inherits the voice instead of negotiating it.',
-          },
-          {
-            title: 'Colour as meaning, not decoration',
-            text: 'Amber and sapphire are the two teams, and they mean the same thing in the draft, on the scoreboard, in the match history and in the Discord channels the platform creates.',
-          },
-          {
-            title: 'Nineteen shared primitives',
-            text: 'Badges, avatars, rank chips, progress bars, dialogs. Built once and reused, so a fix lands everywhere at the same time.',
-          },
-          {
-            title: 'Tokens instead of hex values',
-            text: 'Surfaces, borders and semantic colours live in the config. Changing a shade is one line, not a search across ninety-five components.',
-          },
-          {
-            title: 'Motion with a rule',
-            text: 'Every animation is gated on reduced-motion preferences, nothing animates width or height, and micro-interactions stay under 360ms.',
-          },
+        image: {
+          src: '/Images/Ranking.png',
+          alt: 'DeadQueue season leaderboard',
+          width: 1916,
+          height: 938,
+          caption: 'The season leaderboard, where the top three finish for real prizes.',
+        },
+      },
+      {
+        kind: 'text',
+        eyebrow: 'Subscriptions',
+        title: 'Subscribe and support',
+        body: [
+          'Subscriptions keep DeadQueue online, so the plan comes with real perks, from bonus coins to more visibility on the platform. But honestly, most people subscribe for one reason: to keep the project running.',
+        ],
+      },
+      {
+        kind: 'text',
+        eyebrow: 'Process',
+        title: 'From design to code',
+        body: [
+          'After understanding what users needed and designing the flows and interfaces in Figma, all that was left was bringing it to life. For that, I used my basic development skills and Claude Code, taking the project from prototype to reality.',
+          'This stage was full of quick adjustments. Features that would have taken sprints shipped in days, sometimes in hours. With no slow hand-off, I could test the same day, a speed that was unthinkable in the old process.',
+        ],
+      },
+      {
+        kind: 'text',
+        eyebrow: 'Testing',
+        title: 'Testing with real players before launch',
+        body: [
+          'Before opening it to everyone, the product had to survive real players. So I ran closed test sessions inside streamer communities, where the people most likely to break things, and to have strong opinions, already hang out.',
+          'Getting them in was a design problem of its own. Testers earned an exclusive Beta Tester badge that few players will ever have, so joining a test became something to show off, not a favour to ask for.',
+          'It worked. Six sessions turned up a pile of bugs and ideas, and each one led to fixes before launch. By July, the version that went live had already been tested hard by the community it was built for.',
         ],
       },
       {
         kind: 'metrics',
         eyebrow: 'Results',
-        title: 'Where it stands',
+        title: 'Two months in',
         body: [
-          'DeadQueue runs in production with solo queue, lobbies, hero draft, seasons, ranking, achievements, tournaments, Discord integration and moderation tooling. The next chapter is the post-match screen: the animated rating delta and the level-up moment the loop still owes the player.',
+          'Two months after launch, the numbers say the loop works. People come back, play enough to start climbing, and some already pay to keep the platform running. For a bet on a game that hasn’t fully launched, that early community is the whole point.',
         ],
         items: [
-          { value: 'May 2026', label: 'Live in production' },
-          { value: '31', label: 'Screens' },
-          { value: '95', label: 'Components' },
-          { value: '214', label: 'API endpoints' },
-          { value: '474', label: 'Commits in 3.5 months' },
+          { value: 'July 2026', label: 'Live in production' },
+          { value: '500+', label: 'Users signed up' },
+          { value: '177', label: 'Active users' },
+          { value: '132', label: 'Played 5+ matches' },
+          { value: '400+', label: 'Matches created on DeadQueue' },
+          { value: '20', label: 'Paying subscribers' },
+        ],
+      },
+      {
+        kind: 'list',
+        eyebrow: 'Roadmap',
+        title: 'Built to grow with the game',
+        body: [
+          'DeadQueue is a bet on where Deadlock is heading, so what’s next is aimed at the competitive scene forming around it. Three things come next.',
+        ],
+        items: [
+          {
+            title: 'Tournaments on the platform',
+            text: 'Deadlock is intensely competitive and already has tournaments in beta. Running them on DeadQueue, with brackets, drafts and results in one place, is what the scene will lean on most at launch.',
+          },
+          {
+            title: 'Scrims and scheduled practice',
+            text: 'Teams, pro and amateur, can book practice matches with the draft handled by DeadQueue, so organised training is as easy as joining a queue.',
+          },
+          {
+            title: 'Academy',
+            text: 'The biggest and hardest one: a school that teaches new and veteran players the game, where you learn something and put it into practice right away, in matches the platform runs.',
+          },
         ],
       },
       {
         kind: 'text',
         eyebrow: 'Conclusion',
-        title: 'What designing and building the same product taught me',
+        title: 'What owning the whole thing taught me',
         body: [
-          'Owning both sides removed the translation layer. A decision like “surface the calibration state” stopped being a ticket to argue for and became a two-line change, so the distance between an idea and something real collapsed from sprints to hours.',
-          'It also made the cost of design decisions concrete. Wanting balanced teams is easy to say. The balance is a scoring function with four weights that somebody has to tune, and living on both sides of that made me a considerably better designer to build with.',
+          'Designing and building the same product removed the handoff completely. A decision like “read the scoreboard from a screenshot” wasn’t a ticket to fight for, it was a conversation with Claude Code and a working feature that afternoon.',
+          'The lesson that stuck: a design decision only becomes real when something has to run on it, and a product only becomes real when people change because of it. The proof DeadQueue works isn’t the thirty-one screens, it’s the players who got better inside them.',
         ],
       },
     ],
@@ -223,7 +229,7 @@ export const deadqueue: Record<Lang, CaseStudy> = {
 
   pt: {
     slug: 'deadqueue',
-    eyebrow: 'Projeto autoral · design e código',
+    eyebrow: 'Projeto autoral · design e construção',
     title: 'DeadQueue',
     subtitle: 'Plataforma de matchmaking competitivo para Deadlock, desenhada e construída sozinho',
     role: 'Product Designer & Desenvolvedor',
@@ -232,20 +238,20 @@ export const deadqueue: Record<Lang, CaseStudy> = {
     inverted: true,
     featured: true,
     metrics: [
-      { value: '31', label: 'Telas em produção' },
-      { value: '95', label: 'Componentes no sistema' },
-      { value: '214', label: 'Endpoints de API' },
-      { value: '1', label: 'Pessoa, do design ao deploy' },
+      { value: '500+', label: 'Usuários nos dois primeiros meses' },
+      { value: '400+', label: 'Partidas criadas' },
+      { value: '177', label: 'Usuários ativos' },
+      { value: '20', label: 'Assinantes' },
     ],
     links: [{ label: 'Visitar deadqueue.com.br', href: 'https://www.deadqueue.com.br' }],
     blocks: [
       {
         kind: 'text',
         eyebrow: 'Descrição do projeto',
-        title: 'Uma liga ranqueada para um jogo que não tem uma',
+        title: 'O competitivo que o Deadlock ainda não tem',
         body: [
-          'A DeadQueue é uma plataforma de matchmaking competitivo para Deadlock, o hero shooter da Valve. Ela entrega para a comunidade brasileira o que o próprio jogo não entrega: fila solo com times equilibrados, duelos entre lobbies montados por amigos, draft de heróis com bans, uma pontuação que realmente se move e uma temporada que termina em pódio.',
-          'Desenhei e construí tudo. Pesquisa, decisões de produto, design system, interface e o código que roda em produção. Está no ar desde maio de 2026.',
+          'O DeadQueue é uma plataforma que organiza partidas mais competitivas para Deadlock, o novo MOBA hero shooter da Valve. O jogo ainda está em beta fechado, mas já tem uma média de 60 mil jogadores ativos no mundo, e muita gente esperando o lançamento.',
+          'O DeadQueue busca trazer para a comunidade o que o jogo ainda não entrega competitivamente: jogadores equilibrados, picks and bans de heróis, comunicação e um rank que acompanha o seu desenvolvimento.',
         ],
       },
       {
@@ -253,184 +259,188 @@ export const deadqueue: Record<Lang, CaseStudy> = {
         eyebrow: 'Contexto',
         title: 'Por que eu comecei',
         body: [
-          'Eu jogo. O matchmaking público junta as pessoas quase no sorteio: a partida se decide nos dez primeiros minutos, ninguém se comunica e sempre tem alguém que abandona no meio.',
-          'A comunidade já tinha criado uma gambiarra. As partidas personalizadas eram organizadas na mão pelo Discord: alguém posta “10/12”, o pessoal reage com emoji, os times são montados por quem grita primeiro. Funciona exatamente uma vez. Depois ninguém sabe quem venceu, quem saiu, nem quem realmente joga bem.',
-          'Essa era a brecha. As partidas já existiam. Faltava tudo em volta delas: times justos, memória e consequência.',
+          'Eu jogo, e escutava sempre a mesma reclamação: as partidas organizadas pelo jogo são muito ruins.',
+          'Então fui descobrir o porquê. Conversei com streamers e jogadores, e a frustração era sempre a mesma, toda em torno do matchmaking.',
+          'A vontade já existia, numa comunidade que se importa. Só faltava uma plataforma que levasse isso a sério.',
         ],
       },
       {
         kind: 'list',
         eyebrow: 'Problema',
-        title: 'Três problemas escondidos dentro de uma reclamação',
+        title: 'Cinco problemas por trás de uma reclamação',
         body: [
-          'Todo jogador dizia a mesma frase: “as partidas são ruins”. Conversando com eles, e observando como as threads do Discord funcionavam de verdade, essa frase se abriu em três problemas distintos, cada um pedindo uma resposta diferente.',
+          'Uma frase aparecia o tempo todo: “o matchmaking é muito ruim.” Quando fui a fundo, ela se abria em cinco problemas específicos, cada um pedindo a própria solução.',
         ],
         items: [
           {
-            title: 'Os times nunca eram equilibrados',
-            text: 'Não existia sinal de habilidade nem memória das partidas anteriores. A formação dos times ficava na preferência humana, e capitão escolhe o amigo primeiro. O resultado já estava decidido antes do jogo começar.',
+            title: 'As partidas não são equilibradas',
+            text: 'Jogadores de níveis bem diferentes caem na mesma partida, então o resultado já está decidido antes de começar.',
           },
           {
-            title: 'Nada tinha consequência',
-            text: 'A partida personalizada não deixava rastro. Vencer não valia nada e abandonar não custava nada. Sem registro, não existe motivo para tratar aquilo como competitivo.',
+            title: 'Os heróis são escolhidos no escuro',
+            text: 'Você escolhe o herói sem ver o time inimigo, nem o seu. A composição decide metade da partida, e ela é montada no escuro.',
           },
           {
-            title: 'A coordenação custava mais que o jogo',
-            text: 'Juntar doze pessoas demorava mais que a própria partida, e tudo isso vivia em uma thread de chat que sumia na rolagem no dia seguinte.',
-          },
-        ],
-      },
-      {
-        kind: 'list',
-        eyebrow: 'Princípios',
-        title: 'O que eu decidi otimizar',
-        body: [
-          'Todo produto desse tipo negocia as mesmas quatro coisas entre si. Escrever de que lado eu ficaria, antes de desenhar qualquer tela, foi o que manteve as decisões coerentes lá na frente.',
-        ],
-        items: [
-          {
-            title: 'Partida justa vale mais que partida rápida',
-            text: 'Esperar alguns minutos a mais por um jogo que fica disputado do começo ao fim é melhor que entrar na hora em um atropelo. Tempo de fila é custo, não é a métrica.',
+            title: 'Ninguém se comunica, e nada impede a sabotagem',
+            text: 'As pessoas ficam caladas, abandonam no meio ou jogam para perder rápido, e nada no jogo impede isso.',
           },
           {
-            title: 'Incerteza é informação',
-            text: 'Jogador novo não é jogador ruim, é jogador desconhecido. A interface tem que dizer isso em voz alta em vez de chutar em silêncio.',
+            title: 'Nenhum feedback no fim',
+            text: 'Você joga, joga e joga, e o seu rank não muda. Ninguém entende como o rank funciona.',
           },
           {
-            title: 'Toda partida precisa mover alguma coisa',
-            text: 'Se o jogador termina uma partida e nada mudou visivelmente, o ciclo está quebrado. Progresso é o produto.',
-          },
-          {
-            title: 'O sistema se explica',
-            text: 'Qualquer decisão do ranking precisa ser rastreável pelo jogador que viveu ela. Ranking que ninguém entende é ranking em que ninguém confia.',
-          },
-        ],
-      },
-      {
-        kind: 'list',
-        eyebrow: 'Solução',
-        title: 'Duas portas de entrada, um único ciclo competitivo',
-        items: [
-          {
-            title: 'Fila solo',
-            text: 'Entre sozinho. A plataforma reúne outros onze jogadores e monta os dois times. Sem capitão negociando, sem esperar o amigo entrar.',
-          },
-          {
-            title: 'Lobby contra lobby',
-            text: 'Monte seu time e desafie outro. Como os times já vêm formados, a plataforma pula a fase de formação e avisa os dois lados quando a diferença de nível é grande.',
-          },
-          {
-            title: 'Draft de heróis com bans',
-            text: 'Primeiro os bans, para ditar o ritmo, depois cada jogador escolhe o próprio herói, sem repetição na mesa. O minuto antes da partida vira parte da partida.',
-          },
-          {
-            title: 'Pontuação, nível e temporada',
-            text: 'Todo resultado move a pontuação. A temporada fecha em pódio e zera a disputa, nunca o histórico do jogador.',
+            title: 'Nenhum motivo para evoluir',
+            text: 'Sem nada em jogo, o jogador nunca se esforça para aprender ou superar o próprio limite.',
           },
         ],
       },
       {
         kind: 'text',
-        eyebrow: 'Decisão 01',
-        title: 'Níveis de 1 a 10 no lugar de Bronze, Prata e Ouro',
+        eyebrow: 'Solução 01',
+        title: 'Dez níveis, e um draft de capitães que equilibra',
         body: [
-          'Jogo ranqueado dá nome para as divisões. Eu tirei os nomes de propósito.',
-          'Nome de divisão chega carregado de outro jogo. Quem é “Ouro” em outro lugar lê “Ouro” aqui como ofensa ou como promoção que ninguém deu. Pior: divisão com nome congela as pessoas. Ninguém quer cair de Ouro para Prata, então o rank vira uma coisa para proteger em vez de uma coisa para mover.',
-          'O que o jogador vê é um número de 1 a 10, uma cor e uma barra de progresso dentro do nível atual. A barra é o verdadeiro objeto de design: ela anda depois de toda partida, mesmo quando o número não muda, então o ciclo sempre paga. O nível 10 é o único com nome, Lenda, porque chegar no topo merece ser dito em voz alta.',
+          'A correção para as partidas desequilibradas começa com um nível de 1 a 10. Você só entra na fila com jogadores até dois níveis de distância, então um nível 7 nunca cai num lobby cheio de nível 2. O grupo já está próximo antes de formar os times.',
+          'Os capitães são votados, o que já separa os jogadores mais fortes em times diferentes. Depois, cada um escolhe seus cinco jogadores de forma alternada, para os dois times saírem parelhos.',
         ],
       },
       {
         kind: 'text',
-        eyebrow: 'Decisão 02',
-        title: 'Mostrar a incerteza do sistema em vez de escondê-la',
+        eyebrow: 'Solução 02',
+        title: 'Picks and bans, com os dois times à vista',
         body: [
-          'A pontuação roda em OpenSkill, um modelo bayesiano da mesma família do TrueSkill. Ele descreve cada jogador com dois números: uma estimativa de habilidade e o quanto o sistema confia nessa estimativa.',
-          'A decisão de design foi expor o segundo número. Nas cinco primeiras partidas o badge mostra “Calibrando 2/5” no lugar do nível, e o ranking coloca os não calibrados abaixo de todo mundo, independente de estarem indo bem.',
-          'Custa ao jogador novo cinco partidas sem ver o próprio número. Em troca, ninguém é ranqueado com base em chute e ninguém pode chamar o ranking de fajuto. O número que aparece no fim foi conquistado, e é exatamente esse o ativo.',
+          'Herói no escuro era o segundo problema, então o DeadQueue coloca um draft de heróis completo antes da partida. Primeiro os bans, depois os picks, com as escolhas dos dois times aparecendo na hora.',
+          'Isso transforma o minuto antes da partida em parte da partida. Você finalmente escolhe o herói sabendo o que o inimigo está montando e do que o seu time precisa.',
+        ],
+        image: {
+          src: '/Images/Picks.png',
+          alt: 'Draft de heróis do DeadQueue com picks e bans',
+          width: 1920,
+          height: 981,
+          caption: 'A tela de draft: primeiro os bans, depois todo mundo escolhe, com os dois times à vista.',
+        },
+      },
+      {
+        kind: 'text',
+        eyebrow: 'Solução 03',
+        title: 'Comunicação é requisito mínimo',
+        body: [
+          'O chat de voz do próprio jogo é bom, mas quase ninguém usa. No DeadQueue, vincular o Discord, a maior plataforma de comunicação entre gamers, é obrigatório. E nós incentivamos a comunicação ativa para que os jogadores possam evoluir no game.',
+          'E aqui a conversa importa de verdade. Quem fica calado, abandona ou tenta sabotar o time é tratado pela moderação, algo que o matchmaking público nunca teve.',
         ],
       },
       {
         kind: 'text',
-        eyebrow: 'Decisão 03',
-        title: 'Equilibrar times como problema de busca, não como sorteio',
+        eyebrow: 'Solução 04',
+        title: 'Progresso a cada partida',
         body: [
-          'A primeira versão embaralhava os doze jogadores e sorteava dois capitães. Honesta e péssima: dois dos jogadores mais fortes caíam como capitães adversários e o resto da partida era decidido por quem escolhia o amigo primeiro.',
-          'Troquei por uma busca exata. Doze jogadores divididos em dois times de seis geram 924 partições possíveis, poucas o bastante para avaliar todas e pontuar cada uma contra quatro objetivos ao mesmo tempo: probabilidade de vitória esperada o mais perto possível de 50/50, nível médio parecido dos dois lados, times internamente homogêneos em vez de um bloco de feras carregando quatro iniciantes, e jogadores incertos distribuídos entre os dois lados em vez de amontoados em um só.',
-          'A busca termina em menos de cinco milissegundos. Do lado do jogador é totalmente invisível, e é justamente esse o ponto: ele só percebe que as partidas ficaram disputadas.',
+          'O resultado sai logo depois do jogo acabar, rápido e com feedback real, por dois caminhos: uma IA lê um print do placar final em poucos segundos, e o dado oficial do Deadlock confirma depois. A partir daí, os pontos saem pelo seu desempenho e pela força do time adversário, então vencer um time forte vale mais do que atropelar um fraco. Assim o jogador vê a sua evolução em tempo real!',
         ],
-      },
-      {
-        kind: 'text',
-        eyebrow: 'Decisão 04',
-        title: 'Fechar o ciclo em segundos, não em minutos',
-        body: [
-          'A pontuação só se move quando o resultado é conhecido, e o dado oficial da partida pode demorar bastante para aparecer. É exatamente nesse intervalo que o jogador fecha a aba.',
-          'Então a tela de resultado aceita um print do placar final. Um modelo de visão lê a imagem e devolve dado estruturado, vencedor, heróis, abates, dano e almas, em poucos segundos, o suficiente para atualizar a pontuação de todo mundo na hora. Quando o dado oficial chega depois, ele substitui a leitura provisória sem barulho.',
-          'A restrição de design puxou a funcionalidade inteira. O jogador nunca deveria ficar parado numa tela escrita “aguardando”, e o print é uma coisa que ele já tem na mão.',
-        ],
+        image: {
+          src: '/Images/Final de partida.png',
+          alt: 'Tela de resultado de fim de partida',
+          width: 1920,
+          height: 1080,
+          caption: 'A tela de fim de partida que a IA lê, e onde o rank se mexe.',
+        },
       },
       {
         kind: 'callout',
-        eyebrow: 'Trade-off',
-        title: 'A decisão que eu tive que desfazer',
+        eyebrow: 'Solução 05',
+        title: 'Acima de tudo, um lugar para evoluir',
         body: [
-          'A fila foi desenhada para só juntar jogadores dentro de uma faixa de poucos níveis, abrindo a janela a cada dois minutos até liberar geral. Certo no papel, errado na vida real: com base pequena de jogadores, os mais fortes ficavam sozinhos numa fila vazia enquanto a janela se arrastava.',
-          'Coloquei a regra inteira atrás de uma flag e desliguei. Hoje a fila casa puramente por tempo de espera e o balanceador faz o trabalho depois que os doze entram. A janela adaptativa está escrita, testada e dormindo, esperando o volume que a torna verdadeira.',
-          'Desenhar para o produto que você tem não é a mesma coisa que desenhar para o produto que você quer.',
+          'É isso que o DeadQueue é de verdade: uma comunidade construída em torno de ficar melhor no jogo.',
+          'Os próprios jogadores dizem que evoluíram bastante em relação a quem nunca jogou aqui.',
         ],
       },
       {
-        kind: 'list',
-        eyebrow: 'Sistema',
-        title: 'Um design system feito para aguentar uma pessoa entregando rápido',
+        kind: 'text',
+        eyebrow: 'Gamificação',
+        title: 'Engajamento e personalização',
         body: [
-          'Sem handoff e sem um segundo designer, o sistema é a única coisa que mantém trinta e uma telas coerentes. Ele é propositalmente pequeno.',
+          'Todo jogo tem gamificação, e no DeadQueue não é diferente. Além do nível, todo jogador tem um perfil que dá para personalizar, e é visível para todos.',
+          'A ideia é simples. Você ganha DeadCoins a cada partida, mais quando vence e um pouco menos quando perde. Essas moedas são para gastar em cosméticos como molduras animadas, cor do nome e banners exclusivos.',
+          'E o que mais gera motivação e engajamento: o ranking, com premiação para os primeiros colocados.',
         ],
-        items: [
-          {
-            title: 'Duas famílias tipográficas, sem exceção',
-            text: 'Uma serifada de display para títulos, nomes de time e números grandes. Uma sem serifa para todo o resto. Cada tela nova herda a voz em vez de negociar ela.',
-          },
-          {
-            title: 'Cor como significado, não como enfeite',
-            text: 'Âmbar e safira são os dois times, e significam a mesma coisa no draft, no placar, no histórico e nos canais que a plataforma cria no Discord.',
-          },
-          {
-            title: 'Dezenove primitivas compartilhadas',
-            text: 'Badges, avatares, chips de rank, barras de progresso, diálogos. Feitos uma vez e reaproveitados, então a correção chega em todo lugar ao mesmo tempo.',
-          },
-          {
-            title: 'Tokens no lugar de hex',
-            text: 'Superfícies, bordas e cores semânticas vivem na configuração. Mudar um tom é uma linha, não uma busca em noventa e cinco componentes.',
-          },
-          {
-            title: 'Movimento com regra',
-            text: 'Toda animação respeita a preferência de movimento reduzido, nada anima largura ou altura, e as microinterações ficam abaixo de 360ms.',
-          },
+        image: {
+          src: '/Images/Ranking.png',
+          alt: 'Ranking da temporada do DeadQueue',
+          width: 1916,
+          height: 938,
+          caption: 'O ranking da temporada, onde os três primeiros disputam premiação de verdade.',
+        },
+      },
+      {
+        kind: 'text',
+        eyebrow: 'Assinaturas',
+        title: 'Assinar e apoiar',
+        body: [
+          'A assinatura é o que mantém o DeadQueue no ar, então o plano vem com vantagens de verdade, de moedas de bônus a mais visibilidade na plataforma. Mas, sendo honesto, a maioria assina por um motivo: manter o projeto funcionando.',
+        ],
+      },
+      {
+        kind: 'text',
+        eyebrow: 'Processo',
+        title: 'Do design para o código',
+        body: [
+          'Depois de entender a necessidade dos usuários e desenhar os fluxos e as interfaces no Figma, só faltava trazer tudo à vida. Para isso, usei meus conhecimentos básicos de desenvolvimento e o Claude Code, levando o projeto do protótipo à realidade.',
+          'Nessa etapa fiz muitos ajustes rápidos. Funcionalidades que levariam sprints saíram em dias, às vezes em horas. Sem o processo lento de hand-off, dava para testar no mesmo dia, uma velocidade impensável no fluxo antigo.',
+        ],
+      },
+      {
+        kind: 'text',
+        eyebrow: 'Testes',
+        title: 'Testando com jogadores de verdade antes de lançar',
+        body: [
+          'Antes de abrir para todo mundo, o produto precisava sobreviver a jogadores de verdade. Então rodei sessões de teste fechadas dentro de comunidades de streamers, onde já estão as pessoas mais propensas a quebrar as coisas e a ter opinião forte.',
+          'Trazer essas pessoas foi um problema de design à parte. Quem testava ganhava uma badge exclusiva de Beta Tester que poucos jogadores vão ter, então entrar num teste virou algo para exibir, não um favor a pedir.',
+          'Funcionou. Seis sessões trouxeram uma montanha de bugs e ideias, e cada uma virou correção antes do lançamento. Em julho, a versão que entrou no ar já tinha sido testada com força pela comunidade para quem ela foi feita.',
         ],
       },
       {
         kind: 'metrics',
         eyebrow: 'Resultados',
-        title: 'Onde o projeto está',
+        title: 'Dois meses depois',
         body: [
-          'A DeadQueue roda em produção com fila solo, lobbies, draft de heróis, temporadas, ranking, conquistas, torneios, integração com Discord e ferramentas de moderação. O próximo capítulo é a tela de pós-partida: o delta de pontuação animado e o momento de subir de nível que o ciclo ainda deve ao jogador.',
+          'Dois meses depois do lançamento, os números dizem que o ciclo funciona. As pessoas voltam, jogam o bastante para começar a subir, e algumas já pagam para manter a plataforma no ar. Para uma aposta num jogo que ainda nem lançou de vez, essa comunidade inicial é o objetivo inteiro.',
         ],
         items: [
-          { value: 'Maio 2026', label: 'No ar em produção' },
-          { value: '31', label: 'Telas' },
-          { value: '95', label: 'Componentes' },
-          { value: '214', label: 'Endpoints de API' },
-          { value: '474', label: 'Commits em 3,5 meses' },
+          { value: 'Julho 2026', label: 'No ar em produção' },
+          { value: '500+', label: 'Usuários cadastrados' },
+          { value: '177', label: 'Usuários ativos' },
+          { value: '132', label: 'Jogaram mais de 5 partidas' },
+          { value: '400+', label: 'Partidas criadas pelo DeadQueue' },
+          { value: '20', label: 'Assinantes' },
+        ],
+      },
+      {
+        kind: 'list',
+        eyebrow: 'Roadmap',
+        title: 'Feita para crescer junto com o jogo',
+        body: [
+          'O DeadQueue é uma aposta na direção que o Deadlock está tomando, então o que vem a seguir mira a cena competitiva em volta dele. Três coisas vêm por aí.',
+        ],
+        items: [
+          {
+            title: 'Torneios na plataforma',
+            text: 'O Deadlock é muito competitivo e já tem torneios até no beta. Organizá-los no DeadQueue, com chaves, drafts e resultados num lugar só, é o que a cena mais vai usar no lançamento.',
+          },
+          {
+            title: 'Scrims e treinos agendados',
+            text: 'Times, pro e amador, podem marcar treinos com o draft feito pelo DeadQueue, então treino organizado fica tão fácil quanto entrar na fila.',
+          },
+          {
+            title: 'Academy',
+            text: 'A maior e mais difícil: uma escola que ensina o jogo a novatos e veteranos, onde você aprende algo e coloca em prática na hora, em partidas que a plataforma gerencia.',
+          },
         ],
       },
       {
         kind: 'text',
         eyebrow: 'Conclusão',
-        title: 'O que desenhar e construir o mesmo produto me ensinou',
+        title: 'O que assumir o todo me ensinou',
         body: [
-          'Assumir os dois lados eliminou a camada de tradução. Uma decisão como “expor o estado de calibração” deixou de ser um card para defender e virou uma mudança de duas linhas, então a distância entre a ideia e algo real caiu de sprints para horas.',
-          'Também tornou concreto o custo de cada decisão de design. Querer times equilibrados é fácil de falar. O equilíbrio é uma função de pontuação com quatro pesos que alguém precisa calibrar, e viver dos dois lados disso me tornou um designer consideravelmente melhor de trabalhar junto.',
+          'Desenhar e construir o mesmo produto tirou o handoff do caminho por completo. Uma decisão como “ler o placar a partir de um print” não era um card para defender, era uma conversa com o Claude Code e uma funcionalidade rodando naquela tarde.',
+          'A lição que ficou: uma decisão de design só vira real quando alguma coisa precisa rodar em cima dela, e um produto só vira real quando as pessoas mudam por causa dele. A prova de que o DeadQueue funciona não são as trinta e uma telas, são os jogadores que ficaram melhores dentro delas.',
         ],
       },
     ],

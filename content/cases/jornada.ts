@@ -1,7 +1,7 @@
 import type { CaseStudy, Lang } from '../types'
 
 /**
- * Jornada UX — gamified learning platform, team project.
+ * Jornada UX, gamified learning platform, team project.
  *
  * Note: the previous portfolio had a copy/paste error in this case (the
  * "key insights" block repeated the toll case, and the closing line pointed
@@ -28,8 +28,15 @@ export const jornada: Record<Lang, CaseStudy> = {
         title: 'How do you make online learning stick?',
         body: [
           'The challenge was to raise student engagement and motivation without complicating navigation or overloading the experience. Anything we added had to earn its place in someone’s evening after a full day of work.',
-          'Online teaching removed the barrier of getting to a classroom, and replaced it with a harder one: staying. Students drop out, and when they do, everyone loses — the student, the instructor, and whoever invested in the platform.',
+          'Online teaching removed the barrier of getting to a classroom, and replaced it with a harder one: staying. Students drop out, and when they do, everyone loses: the student, the instructor, and whoever invested in the platform.',
         ],
+        image: {
+          src: '/Images/jornada-overview.png',
+          alt: 'A montage of the Jornada UX platform screens',
+          width: 1920,
+          height: 1080,
+          caption: 'The platform end to end: dashboard, ranking, modules, quizzes and profile.',
+        },
       },
       {
         kind: 'text',
@@ -58,6 +65,13 @@ export const jornada: Record<Lang, CaseStudy> = {
             text: 'We built Clara Santos, a 29-year-old graphic designer studying to change careers. Mapping her journey exposed exactly where demotivation appeared and which navigation moments were costing us.',
           },
         ],
+        image: {
+          src: '/Images/jornada-persona.png',
+          alt: 'Portrait of Clara Santos, the primary persona',
+          width: 626,
+          height: 417,
+          caption: 'Clara Santos, the persona the whole design was tested against.',
+        },
       },
       {
         kind: 'quote',
@@ -69,9 +83,16 @@ export const jornada: Record<Lang, CaseStudy> = {
         eyebrow: 'Key insight',
         title: 'Effort was invisible, so it felt wasted',
         body: [
-          'Across the interviews and the journey map, the pattern was consistent: students were completing real work — modules, quizzes, delivered cases — and none of it accumulated anywhere they could see.',
+          'Across the interviews and the journey map, the pattern was consistent: students were completing real work, from modules to quizzes to delivered cases, and none of it accumulated anywhere they could see.',
           'The design problem was not motivation in the abstract. It was that the platform had no memory of effort, so progress had to be reconstructed by the student every time they logged in.',
         ],
+        image: {
+          src: '/Images/jornada-quiz.jpg',
+          alt: 'The quiz screen, one of the ways students earn points',
+          width: 1512,
+          height: 982,
+          caption: 'Modules, quizzes and delivered cases: real work that had nowhere to accumulate.',
+        },
       },
       {
         kind: 'text',
@@ -81,6 +102,13 @@ export const jornada: Record<Lang, CaseStudy> = {
           'Every completed module, every answered quiz and every delivered case earns a defined number of points. When the student finishes the course and reaches 1,000 points, those points convert into money back.',
           'The reward matters, but the mechanic matters more: points turn scattered study sessions into a single visible line that only moves forward. The student stops asking whether they are making progress, because the answer is on screen.',
         ],
+        image: {
+          src: '/Images/jornada-modules.jpg',
+          alt: 'The modules screen with visible progress on each card',
+          width: 1514,
+          height: 982,
+          caption: 'Progress made visible: every module carries its own advance on screen.',
+        },
       },
       {
         kind: 'list',
@@ -103,6 +131,13 @@ export const jornada: Record<Lang, CaseStudy> = {
             text: 'We closed the project with a style guide covering the visual system, so consistency survived past the people who designed it.',
           },
         ],
+        image: {
+          src: '/Images/jornada-styleguide.png',
+          alt: 'The colour section of the Jornada UX style guide',
+          width: 1356,
+          height: 1020,
+          caption: 'The style guide that held the visual system together.',
+        },
       },
       {
         kind: 'text',
@@ -138,6 +173,13 @@ export const jornada: Record<Lang, CaseStudy> = {
           'O desafio era aumentar o engajamento e a motivação do aluno sem complicar a navegação nem sobrecarregar a experiência. Tudo o que a gente adicionasse precisava justificar o espaço na noite de alguém que já trabalhou o dia inteiro.',
           'O ensino online derrubou a barreira de chegar até a sala e colocou no lugar uma barreira mais difícil: ficar. O aluno desiste, e quando desiste todo mundo perde: o aluno, o professor e quem investiu na plataforma.',
         ],
+        image: {
+          src: '/Images/jornada-overview.png',
+          alt: 'Uma montagem das telas da plataforma Jornada UX',
+          width: 1920,
+          height: 1080,
+          caption: 'A plataforma de ponta a ponta: painel, ranking, módulos, quizzes e perfil.',
+        },
       },
       {
         kind: 'text',
@@ -166,6 +208,13 @@ export const jornada: Record<Lang, CaseStudy> = {
             text: 'Criamos a Clara Santos, designer gráfica de 29 anos estudando para mudar de carreira. Mapear a jornada dela expôs exatamente onde a desmotivação aparecia e quais momentos de navegação estavam custando caro.',
           },
         ],
+        image: {
+          src: '/Images/jornada-persona.png',
+          alt: 'Retrato de Clara Santos, a persona principal',
+          width: 626,
+          height: 417,
+          caption: 'Clara Santos, a persona contra a qual todo o design foi testado.',
+        },
       },
       {
         kind: 'quote',
@@ -180,6 +229,13 @@ export const jornada: Record<Lang, CaseStudy> = {
           'Nas entrevistas e no mapa de jornada o padrão se repetia: o aluno estava entregando trabalho real, módulos, quizzes, cases, e nada disso se acumulava em nenhum lugar que ele pudesse ver.',
           'O problema de design não era motivação no abstrato. Era que a plataforma não tinha memória do esforço, então o progresso precisava ser reconstruído pelo aluno toda vez que ele entrava.',
         ],
+        image: {
+          src: '/Images/jornada-quiz.jpg',
+          alt: 'A tela de quiz, uma das formas do aluno ganhar pontos',
+          width: 1512,
+          height: 982,
+          caption: 'Módulos, quizzes e cases entregues: trabalho real que não se acumulava em lugar nenhum.',
+        },
       },
       {
         kind: 'text',
@@ -189,6 +245,13 @@ export const jornada: Record<Lang, CaseStudy> = {
           'Cada módulo concluído, cada quiz respondido e cada case entregue vale uma quantidade definida de pontos. Quando o aluno termina o curso e chega a 1.000 pontos, esses pontos viram dinheiro de volta.',
           'A recompensa importa, mas a mecânica importa mais: os pontos transformam sessões de estudo espalhadas em uma única linha visível que só anda para frente. O aluno para de perguntar se está progredindo, porque a resposta está na tela.',
         ],
+        image: {
+          src: '/Images/jornada-modules.jpg',
+          alt: 'A tela de módulos com o progresso visível em cada card',
+          width: 1514,
+          height: 982,
+          caption: 'Progresso tornado visível: cada módulo carrega o próprio avanço na tela.',
+        },
       },
       {
         kind: 'list',
@@ -211,6 +274,13 @@ export const jornada: Record<Lang, CaseStudy> = {
             text: 'Fechamos o projeto com um style guide cobrindo o sistema visual, para a consistência sobreviver às pessoas que desenharam.',
           },
         ],
+        image: {
+          src: '/Images/jornada-styleguide.png',
+          alt: 'A seção de cores do style guide da Jornada UX',
+          width: 1356,
+          height: 1020,
+          caption: 'O style guide que sustentou o sistema visual.',
+        },
       },
       {
         kind: 'text',

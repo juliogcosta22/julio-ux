@@ -6,7 +6,7 @@ import { nutririo } from './cases/nutririo'
 
 export const en: SiteContent = {
   meta: {
-    title: 'Júlio Costa — Product Designer',
+    title: 'Júlio Costa, Product Designer',
     description:
       'Product designer working across research, interface and code. Selected cases in competitive gaming, highway operations, education and health.',
   },
@@ -47,7 +47,7 @@ export const en: SiteContent = {
       {
         company: 'Independent',
         role: 'Product Designer & Developer',
-        period: '2026 — present',
+        period: '2026 to present',
         bullets: [
           'Designing and building DeadQueue, a competitive matchmaking platform running in production, from research and design system through to the shipped code.',
           'Working end to end: product decisions, interface, front-end, data model and the ranking logic behind the experience.',
@@ -56,7 +56,7 @@ export const en: SiteContent = {
       {
         company: 'Muralis Tecnologia',
         role: 'UX/UI Designer',
-        period: '2023 — 2025',
+        period: '2023 to 2025',
         bullets: [
           'Created and implemented design systems and design tokens to keep consistency and scalability across products.',
           'Designed interfaces for business management systems in sectors such as highways and shopping centres.',
@@ -145,12 +145,12 @@ export const en: SiteContent = {
     eyebrow: 'Contact',
     title: 'Let’s talk about your product',
     body:
-      'Open to full-time roles, freelance projects and conversations that have not been framed yet. The fastest way to reach me is email.',
+      'Open to full-time, temporary and freelance roles. The fastest way to reach me is email.',
     email: 'julioguimaraes22@gmail.com',
     channels: [
-      { label: 'Email', value: 'julioguimaraes22@gmail.com', href: 'mailto:julioguimaraes22@gmail.com' },
-      { label: 'LinkedIn', value: 'in/juliogcosta', href: 'https://www.linkedin.com/in/juliogcosta/' },
-      { label: 'Instagram', value: '@julio.ux', href: 'https://www.instagram.com/julio.ux/' },
+      { label: 'LinkedIn', value: 'in/julioguimaraescosta', href: 'https://www.linkedin.com/in/julioguimaraescosta/' },
+      { label: 'Instagram', value: '@julio.gcosta', href: 'https://www.instagram.com/julio.gcosta/' },
+      { label: 'WhatsApp', value: '+55 11 99882-4175', href: 'https://wa.me/5511998824175' },
     ],
     back: 'Back to home',
   },
@@ -161,8 +161,9 @@ export const en: SiteContent = {
     casesTitle: 'Case studies',
     socialTitle: 'Elsewhere',
     social: [
-      { label: 'LinkedIn', href: 'https://www.linkedin.com/in/juliogcosta/' },
-      { label: 'Instagram', href: 'https://www.instagram.com/julio.ux/' },
+      { label: 'LinkedIn', href: 'https://www.linkedin.com/in/julioguimaraescosta/' },
+      { label: 'Instagram', href: 'https://www.instagram.com/julio.gcosta/' },
+      { label: 'WhatsApp', href: 'https://wa.me/5511998824175' },
       { label: 'Email', href: 'mailto:julioguimaraes22@gmail.com' },
     ],
     rights: '© 2026 Júlio Costa. All rights reserved.',

@@ -1,6 +1,6 @@
 # julio-ux
 
-Portfolio of Júlio Costa — Product Designer. Next.js (App Router) + TypeScript +
+Portfolio of Júlio Costa, Product Designer. Next.js (App Router) + TypeScript +
 Tailwind, bilingual EN/PT, statically generated.
 
 ```bash
@@ -71,7 +71,7 @@ Defined in `tailwind.config.ts`:
 
 - **paper** `#F6F4EF` page, `paper-50` raised, `paper-100` wells, `paper-200` borders
 - **ink** `#151311` primary, `ink-600` secondary, `ink-400` muted, `ink-200` hairlines
-- **accent** `#C1440E` burnt orange — eyebrows, links, one CTA per view
+- **accent** `#C1440E` burnt orange: eyebrows, links, one CTA per view
 - **night** `#151311` inverted sections (footer, DeadQueue hero, callouts)
 
 Type: `font-display` (Instrument Serif) for headlines and numbers,
@@ -87,6 +87,6 @@ Utilities in `globals.css`: `.shell`, `.eyebrow`, `.btn-ink`, `.btn-ghost`,
 
 - Confirm the LinkedIn and Instagram URLs in `content/en.ts` and `content/pt.ts`
   (they are currently a best guess).
-- Add `app/opengraph-image.tsx` or a static OG image — there is none yet.
+- Add `app/opengraph-image.tsx` or a static OG image, there is none yet.
 - Point `metadataBase`, `sitemap.ts` and `robots.ts` at the final domain if it
   is not `www.julio-ux.com`.

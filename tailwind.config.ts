@@ -10,7 +10,7 @@ const config: Config = {
     extend: {
       colors: {
         paper: {
-          DEFAULT: '#F6F4EF', // page background — warm off-white
+          DEFAULT: '#F6F4EF', // page background, warm off-white
           50: '#FBFAF7',      // raised cards
           100: '#EFEBE3',     // subtle wells / hairline fills
           200: '#E4DFD4',     // borders on paper
@@ -22,7 +22,7 @@ const config: Config = {
           200: '#B8B1A6',     // disabled / decorative
         },
         accent: {
-          DEFAULT: '#C1440E', // burnt orange — links, eyebrows, one CTA
+          DEFAULT: '#C1440E', // burnt orange: links, eyebrows, one CTA
           soft: '#F0E2D8',    // accent tint background
         },
         night: {
@@ -35,7 +35,7 @@ const config: Config = {
         sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
       },
       fontSize: {
-        // Editorial display scale — fluid, clamps against the viewport.
+        // Editorial display scale, fluid, clamps against the viewport.
         'display-xl': ['clamp(2.75rem, 8vw, 7rem)', { lineHeight: '0.95', letterSpacing: '-0.03em' }],
         'display-lg': ['clamp(2.25rem, 5.5vw, 4.5rem)', { lineHeight: '1.02', letterSpacing: '-0.025em' }],
         'display-md': ['clamp(1.75rem, 3.5vw, 3rem)', { lineHeight: '1.08', letterSpacing: '-0.02em' }],

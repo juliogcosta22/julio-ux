@@ -10,21 +10,36 @@ interface Props {
 }
 
 /**
- * The work grid. The first case runs full width and the rest pair up, so the
- * page has one clear entry point instead of four equal ones.
+ * The work grid: two projects per row, alternating a wide card with a narrow
+ * one and flipping the side each row, so the section reads as an asymmetric
+ * rhythm. Each row is a flex track sized by flex-grow, so hovering a card lets
+ * it expand horizontally while its neighbour gives up the space — the shared,
+ * fixed height keeps every divider and title aligned throughout.
  */
 export function WorkIndex({ lang, cases, ui }: Props) {
-  const [lead, ...rest] = cases
+  const rows: CaseStudy[][] = []
+  for (let i = 0; i < cases.length; i += 2) rows.push(cases.slice(i, i + 2))
 
   return (
-    <div className="mt-16 space-y-16 md:mt-20 md:space-y-20">
-      <WorkCard lang={lang} study={lead} ui={ui} index={0} wide />
-
-      <div className="grid gap-16 md:grid-cols-2 md:gap-x-8 md:gap-y-20">
-        {rest.map((study, i) => (
-          <WorkCard key={study.slug} lang={lang} study={study} ui={ui} index={i + 1} />
-        ))}
-      </div>
+    <div className="mt-16 space-y-16 md:mt-20 md:space-y-24">
+      {rows.map((row, r) => (
+        <div key={r} className="flex flex-col gap-16 md:flex-row md:items-start md:gap-8">
+          {row.map((study, col) => {
+            // Wide card sits left on even rows, right on odd rows — a zigzag.
+            const big = r % 2 === 0 ? col === 0 : col === 1
+            return (
+              <WorkCard
+                key={study.slug}
+                lang={lang}
+                study={study}
+                ui={ui}
+                index={r * 2 + col}
+                big={big}
+              />
+            )
+          })}
+        </div>
+      ))}
     </div>
   )
 }
@@ -34,38 +49,47 @@ function WorkCard({
   study,
   ui,
   index,
-  wide,
+  big,
 }: {
   lang: Lang
   study: CaseStudy
   ui: SiteContent['work']
   index: number
-  wide?: boolean
+  big: boolean
 }) {
   return (
-    <Reveal as="article" delay={wide ? 0 : (index % 2) * 90}>
+    // The <article> is the flex item: it owns the width (flex-grow) and the
+    // hover expansion. Reveal lives inside so its own opacity/transform
+    // transition doesn't clash with the flex-grow one animated here.
+    <article
+      className={[
+        'min-w-0 transition-[flex-grow] duration-700 ease-editorial md:basis-0',
+        big ? 'md:grow-[1.7] md:hover:grow-[2.4]' : 'md:grow md:hover:grow-[2]',
+      ].join(' ')}
+    >
+      <Reveal delay={(index % 2) * 90}>
       <Link href={`/${lang}/work/${study.slug}`} className="group block">
+        {/* Both cards in a row share one height so their dividers and titles
+            line up; hover changes only the width. */}
         <CaseCover
           slug={study.slug}
           className={[
-            'w-full transition-transform duration-700 ease-editorial group-hover:scale-[1.012]',
-            wide ? 'aspect-[16/9] md:aspect-[21/9]' : 'aspect-[4/3]',
+            'w-full transition-transform duration-700 ease-editorial group-hover:scale-[1.02]',
+            'aspect-[4/3] md:aspect-auto md:h-[clamp(20rem,30vw,29rem)]',
           ].join(' ')}
         />
 
         <div className="mt-6 flex items-start justify-between gap-6 border-t border-ink-200 pt-5">
           <div>
             <div className="flex items-center gap-3">
-              <span className="eyebrow text-ink-200">
-                {String(index + 1).padStart(2, '0')}
-              </span>
+              <span className="eyebrow text-ink-200">{String(index + 1).padStart(2, '0')}</span>
               <span className="eyebrow text-ink-400">{study.discipline}</span>
             </div>
 
             <h3
               className={[
                 'mt-3 font-display leading-none text-ink',
-                wide ? 'text-display-md' : 'text-display-sm md:text-[2rem]',
+                big ? 'text-display-md' : 'text-display-sm',
               ].join(' ')}
             >
               {study.title}
@@ -93,6 +117,7 @@ function WorkCard({
           <span className="font-display text-xl text-ink-200 md:text-2xl">{study.year}</span>
         </div>
       </Link>
-    </Reveal>
+      </Reveal>
+    </article>
   )
 }
